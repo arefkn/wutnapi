@@ -34,6 +34,12 @@ class MemAvail extends Component {
       memAvail: "Loading..."
     };
   }
+
+  componentDidMount() {
+    raspiInfo.getMemoryAvailable().then(memAvail => this.setState({memAvail}));
+
+  }
+
   render() {
     return (<div>Memory available: {this.state.memAvail}</div>);
   }
