@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+const raspiInfo = require('raspberry-info');
 
 class App extends Component {
   render() {
@@ -18,10 +19,23 @@ class App extends Component {
             rel="noopener noreferrer"
           >
             Learn React
+            <MemAvail/>
           </a>
         </header>
       </div>
     );
+  }
+}
+
+class MemAvail extends Component {
+  constructor() {
+    super();
+    this.state = {
+      memAvail: "Loading..."
+    };
+  }
+  render() {
+    return (<div>Memory available: {this.state.memAvail}</div>);
   }
 }
 
